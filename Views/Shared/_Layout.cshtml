@@ -1,0 +1,208 @@
+﻿@using SNKRS.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Yikes</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdn.reflowhq.com/v1/toolkit.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <style>
+         body {
+        padding-top: 80px; /* Khoảng cách giữa thanh điều hướng và nội dung */
+    }
+        .navbar-fixed {
+            transition: padding-top 0.3s ease-out, background-color 0.3s ease-out; /* Hiệu ứng chuyển động và màu sắc */
+            background-color: transparent; /* Màu nền ban đầu là trong suốt */
+        }
+
+            .navbar-fixed.nav-up {
+                padding-top: 20px; /* Khoảng cách giữa thanh điều hướng và nội dung khi ẩn đi */
+                background-color: #343a40; /* Màu nền khi thanh điều hướng ẩn đi */
+            }
+    </style>
+
+
+    @RenderSection("styles", required: false)
+    <link rel="stylesheet" href="~/Content/Style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-fixed">
+        <!-- ... Nội dung thanh điều hướng ... -->
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                <img src="~/Content/Images/LogoYikes.png" alt="Yikes Logo" width="40">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Home")">
+                            <strong>TRANG CHỦ</strong>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Shop")">
+                            <strong>GIAN HÀNG</strong>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("About", "Home")">
+                            <strong>ABOUT</strong>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("Contact", "Home")">
+                            <strong>CONTACT</strong>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Tracking")">
+                            <strong>ĐƠN HÀNG CỦA TÔI</strong>
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <style>
+                        .nav-link-gio-hang {
+                            font-weight: bold;
+                        }
+                    </style>
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-gio-hang" href="@Url.Action("Index", "Cart")"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng <span id="cart-amount" class="badge bg-secondary"></span></a>
+                        </li>
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        @RenderBody()
+    </main>
+    <footer class="footer-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>Thông tin liên lạc</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-google"></i> quangtrantroi@gmail.com</a></li>
+                        <li><a href="tel:0822185170">&#9742; 0822185170</a></li>
+                        <li><span>&#127968;</span> <a href="#">66/9/8 đường Huỳnh Văn Nghệ, tổ 42, khu 5, phường Phú Lợi, TP.Thủ Dầu Một, tỉnh Bình Dương</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="@Url.Action("About", "Home")">Về chúng tôi</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")">Liên lạc</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 item text">
+                    <h3>YIKES luôn lắng nghe bạn!!!</h3>
+                    <p>Chúng tôi luôn trân trọng và mong đợi nhận được mọi ý kiến đóng góp từ khách hàng để có thể nâng cấp trải nghiệm dịch vụ và sản phẩm tốt hơn nữa..</p>
+                </div>
+                <div class="col item social"><a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-twitter"></i></a><a href="#"><i class="fa-brands fa-snapchat"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a></div>
+            </div>
+            <p class="copyright">Yikes © 2023</p>
+        </div>
+    </footer>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "105449742133587");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v13.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $.ajax({
+            url: "@Url.Action("GetCartAmount", "Cart")",
+            success: function (res) {
+                $("#cart-amount").text(res);
+            }
+        })
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script>
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $('.navbar').outerHeight();
+
+    $(window).scroll(function () {
+        didScroll = true;
+    });
+
+    setInterval(function () {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+        }
+    }, 250);
+
+    function hasScrolled() {
+        var st = $(this).scrollTop();
+
+        // Make sure they scroll more than delta
+        if (Math.abs(lastScrollTop - st) <= delta)
+            return;
+
+        // If they scrolled down and are past the navbar, add class .nav-up.
+        // This is necessary so you never see what is "behind" the navbar.
+        if (st > lastScrollTop && st > navbarHeight) {
+            // Scroll Down
+            $('.navbar').removeClass('nav-down').addClass('nav-up');
+        } else {
+            // Scroll Up
+            if (st + $(window).height() < $(document).height()) {
+                $('.navbar').removeClass('nav-up').addClass('nav-down');
+            }
+        }
+
+        lastScrollTop = st;
+    }
+</script>
+

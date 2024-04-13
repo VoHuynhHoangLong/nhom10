@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-5 min-vh-100">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="list-group">
+                <a href="@Url.Action("Setting", "Account")" class="list-group-item list-group-item-action py-3" aria-current="true">
+                    Thông tin người dùng
+                </a>
+                <a href="@Url.Action("Index", "Manage")" class="list-group-item list-group-item-action py-3" aria-current="true">
+                    Quản lý tài khoản
+                </a>
+                <a href="@Url.Action("OrderHistory", "Account")" class="list-group-item list-group-item-action py-3">Lịch sử đơn hàng</a>
+                <a href="@Url.Action("ChangePassword", "Account")" class="list-group-item list-group-item-action py-3">Đổi mật khẩu</a>
+
+            </div>
+        </div>
+        <div class="col-lg-9">
+            @RenderBody()
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+    <script>
+        $("a:contains(@ViewBag.Current)").addClass("active");
+    </script>    
+}

@@ -1,0 +1,153 @@
+﻿@model SNKRS.ViewModels.HomeViewModel
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<section class="d-flex justify-content-center align-items-center">
+    <div class="image-container">
+        <div class="mySlides fade fade-out">
+            <div class="container">
+                <div class="col-md-6 image-container">
+                    <img class="fixed-size-image" src="~/Content/Images/paner1jpg.jpg">
+                </div>
+            </div>
+        </div>
+        <div class="mySlides fade fade-in">
+            <div class="container">
+                <div class="col-md-6 image-container">
+                    <img class="fixed-size-image" src="~/Content/Images/banner2.png">
+                </div>
+            </div>
+        </div>
+        <div class="mySlides fade fade-out">
+            <div class="container">
+                <div class="col-md-6 image-container">
+                    <img class="fixed-size-image" src="~/Content/Images/banner2.png">
+                </div>
+            </div>
+        </div>
+        <div class="mySlides fade fade-in">
+            <div class="container">
+                <div class="col-md-6 image-container">
+                    <img class="fixed-size-image" src="~/Content/Images/paner1jpg.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+<div class="container">
+    <h1 class="py-3 text-center custom-heading">Đang giảm giá</h1>
+    <div class="reflow-product-list ref-cards">
+        <div class="ref-products">
+            @foreach (var item in Model.OnSale)
+            {
+                <a class="ref-product shadow-effect" href="@Url.Action("Details", "Product", new { id = item.Id })">
+                    <img class="ref-image" src="@item.Image" loading="lazy">
+                    <div class="ref-product-data">
+                        <div class="ref-product-info">
+                            <h5 class="ref-name">@item.Name</h5>
+                        </div>
+                        @if (item.SalePrice > 0)
+                        {
+                            <p class="ref-price"><span class="text-decoration-line-through text-muted">@String.Format("{0:#,##0}", item.Price)</span> - @String.Format("{0:#,##0}", item.SalePrice)<u>đ</u></p>
+                        }
+                        else
+                        {
+                            <p class="ref-price ">@String.Format("{0:#,##0}", item.Price)<u>đ</u></p>
+                        }
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>
+</section>
+
+<section>
+    <div class="container">
+        <h1 class="py-3 text-center custom-heading">Mới cập nhật</h1>
+
+        <div class="reflow-product-list ref-cards">
+            <div class="ref-products">
+                @foreach (var item in Model.Upcoming)
+                {
+                    <a class="ref-product shadow-effect" href="@Url.Action("Details", "Product", new { id = item.Id })">
+                        <img class="ref-image" src="@item.Image" loading="lazy">
+                        <div class="ref-product-data">
+                            <div class="ref-product-info">
+                                <h5 class="ref-name">@item.Name</h5>
+                            </div>
+                            @if (item.SalePrice > 0)
+                            {
+                                <p class="ref-price"><span class="text-decoration-line-through text-muted">@String.Format("{0:#,##0}", item.Price)</span> - @String.Format("{0:#,##0}", item.SalePrice)<u>đ</u></p>
+                            }
+                            else
+                            {
+                                <p class="ref-price">@String.Format("{0:#,##0}", item.Price)<u>đ</u></p>
+                            }
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h1 class="py-3 text-center custom-heading">Phổ biến nhất</h1>
+        <div class="reflow-product-list ref-cards">
+            <div class="ref-products">
+                @foreach (var item in Model.Best_selling)
+                {
+                    <a class="ref-product shadow-effect" href="@Url.Action("Details", "Product", new { id = item.Id })">
+                        <img class="ref-image" src="@item.Image" loading="lazy">
+                        <div class="ref-product-data">
+                            <div class="ref-product-info">
+                                <h5 class="ref-name">@item.Name</h5>
+                            </div>
+                            @if (item.SalePrice > 0)
+                            {
+                                <p class="ref-price"><span class="text-decoration-line-through text-muted">@String.Format("{0:#,##0}", item.Price)</span> - @String.Format("{0:#,##0}", item.SalePrice)<u>đ</u></p>
+                            }
+                            else
+                            {
+                                <p class="ref-price ">@String.Format("{0:#,##0}", item.Price)<u>đ</u></p>
+                            }
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="brands"><a href="#"> <img src="~/Content/Images/instacart.png"><img src="~/Content/Images/kickstarter.png"><img src="~/Content/Images/lyft.png"><img src="~/Content/Images/shopify.png"><img src="~/Content/Images/pinterest.png"><img src="~/Content/Images/twitter.png"></a></div>
+</section>
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000);
+    }
+</script>
+<style>
+    .custom-heading {
+        background-color:#f8e4e4;
+        color: red; /* Đặt màu chữ thành đỏ */
+        border-top: 1px solid red; /* Đường kẻ phía trên */
+        border-bottom: 1px solid red; /* Đường kẻ phía dưới */
+        padding: 10px 0; /* Khoảng cách giữa đường kẻ và nội dung */
+    }
+</style>

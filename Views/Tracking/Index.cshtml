@@ -1,0 +1,45 @@
+﻿@model SNKRS.Models.Order
+@{
+    ViewBag.Title = "Tracking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-5 min-vh-100">
+    <div class="row justify-content-lg-center">
+        <div class="col-lg-8">
+            <h2 class="text-center py-3">Trạng thái đơn hàng</h2>
+            @using (Html.BeginForm("Index", "Tracking"))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group input-group-lg mb-3">
+                    <input name="Id" type="text" class="form-control" placeholder="Nhập ID đơn hàng" />
+                </div>
+                <button type="submit" hidden>Track</button>
+            }
+            @if (ViewBag.Search == true)
+            {
+                if (Model != null)
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <p><b>ID: </b>#@Model.Id</p>
+                            <p><b>Khách hàng: </b>@Model.Name</p>
+                            <p><b>Số điện thoại: </b>@Model.Phone</p>
+                            <p><b>Địa chỉ: </b>@Model.Address</p>
+                            <p><b>Ngày đặt: </b>@Model.Created_At</p>
+                            <p><b>Tổng tiền: </b>@String.Format("{0:#,##0}", Model.Amount)</p>
+                            <p><b>Trạng thái: </b><span class="badge bg-success">@Model.OrderStatus.Name</span></p>
+                            <a href="@Url.Action("Index", "OrderDetail", new { id = Model.Id })" class="btn btn-primary">Chi tiết đơn hàng</a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div>Đơn hàng không tồn tại</div>
+                }
+            }
+          
+        </div>
+    </div>
+
+</div>

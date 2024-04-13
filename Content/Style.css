@@ -1,0 +1,240 @@
+﻿container {
+    background-color: #79eded
+}
+
+body {
+    font-family: 'Times New Roman', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Times New Roman', serif;
+}
+
+
+/*Enhanced Form Styling:*/
+.contact-form input[type=text],
+.contact-form input[type=email],
+.contact-form textarea {
+    border: 1px solid #e6e6e6;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+    .contact-form input[type=text]:focus,
+    .contact-form input[type=email]:focus,
+    .contact-form textarea:focus {
+        border-color: #cacaca;
+        outline: none;
+    }
+
+.contact-form input[type=submit] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .contact-form input[type=submit]:hover {
+        background-color: #0056b3;
+    }
+/*Responsive Map Styling:*/
+iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .info, .contact-form, iframe {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+/*Enhanced Button Design:*/
+.btn-primary {
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+/*Adding Background Patterns or Images:*/
+.bg-light {
+    background: url('~/Content/Images/background.jpg') no-repeat center center;
+    background-size: cover;
+}
+/*Visual Hierarchy with Typography:*/
+.contact-section .info p span {
+    color: #333;
+    font-weight: bold;
+}
+.success-message {
+    color: #28a745;
+    background-color: #dff0d8;
+    border-color: #d4edda;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+/*Success Message Styling:*/
+.hero-wrap .slider-text {
+    text-align: center;
+    color: #000; 
+    padding-top: 100px;
+}
+
+    .hero-wrap .slider-text h1 {
+        font-size: 48px; 
+        font-weight: bold; 
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1.2; 
+        font-family: 'Open Sans', sans-serif;
+    }
+
+.card-header {
+    background-color: #53d7eb; /* Thay yourColor bằng mã màu bạn muốn sử dụng */
+    /* Các thuộc tính khác nếu cần thiết */
+}
+
+/**/
+.row > .col-md-5 {
+    flex: 0 0 50%; 
+    max-width: 50%; 
+}
+
+.row > .col-md-7 {
+    flex: 0 0 50%; 
+    max-width: 50%; 
+}
+.img-2 {
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: auto;
+    background-position: center center;
+}
+/**/
+/* Đổi màu nền cho thanh điều hướng */
+.navbar {
+    background-color: white;
+}
+
+/* Đổi màu chữ trên thanh điều hướng (mặc định là đen) */
+.navbar-nav .nav-link {
+    color: #000; 
+}
+
+
+/*tạo bóng*/ 
+
+.shadow-effect {
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1); /* Adjust as needed */
+
+}
+/*Hiệu ứng*/
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.fade-out {
+    animation-name: fade-out;
+    animation-duration: 2s;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+/**/
+.image-container {
+    width: auto; /* Đặt kích thước cố định cho container */
+    height: auto; /* Cho phép tỷ lệ khung hình bảo tồn */
+}
+
+.fixed-size-image {
+    width: auto; /* Đặt kích thước cố định cho hình ảnh */
+    height: auto; /* Cho phép tỷ lệ khung hình bảo tồn */
+}
+
+/**/
+ 
+
+.fixed-size-image {
+    width: 100%; /* 100% chiều rộng so với phần tử cha */
+    height: auto; /* Duy trì tỷ lệ khung hình */
+    max-width: 6000px; /* Đặt chiều rộng tối đa mong muốn */
+    max-height: 4000px; /* Đặt chiều cao tối đa mong muốn */
+}
+
+.footer-dark {
+    background-color: #000 /* Màu nền footer */
+}
+
+    .footer-dark:hover {
+        background-color: #292f36; /* Màu nền khi hover */
+    }
+
+.navbar-fixed {
+    transition: padding-top 0.3s ease-out, background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+    background-color: #a5feed;
+    box-shadow: none; /* Loại bỏ đổ bóng ban đầu */
+}
+
+    .navbar-fixed.nav-up {
+        background-color: rgba(83, 85, 94, 0.5); /* Adjust transparency with the alpha value */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+
+
+
+/* màu giá tiền*/
+.ref-price {
+    color: red;
+    font-size: 24px;
+}
+.ref-heading {
+    text-align: center; /* Căn giữa nội dung */
+    color: #FF0000; /* Đổi màu về đỏ (#FF0000) */
+}
+a.ref-product.shadow-effect {
+    border: 1px solid #000000; /* Adds a black border */
+    /* Add other styles here if needed */
+}
+    a.ref-product.shadow-effect:hover {
+        color: black; /* Changes text color on hover to red */
+        background-color: #a5feed; /* Optional: changes background color on hover to yellow */
+    }
+
+
+
